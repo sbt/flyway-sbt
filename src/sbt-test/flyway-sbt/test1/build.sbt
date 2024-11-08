@@ -9,5 +9,7 @@ libraryDependencies ++= Seq(
 flywayUrl := "jdbc:hsqldb:file:target/flyway_sample;shutdown=true"
 flywayUser := "SA"
 flywayLocations += "db/sbt"
-flywayUrl in Test := "jdbc:hsqldb:file:target/flyway_sample;shutdown=true"
-flywayUser in Test := "SA"
+Test / flywayUrl := "jdbc:hsqldb:file:target/flyway_sample;shutdown=true"
+Test / flywayUser := "SA"
+flywayCleanDisabled := false
+Test / flywayCleanDisabled := false

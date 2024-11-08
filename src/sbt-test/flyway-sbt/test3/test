@@ -1,4 +1,4 @@
 > flywayClean
 > flywayMigrate
-> test:flywayClean
-> test:flywayMigrate
+> Test/flywayClean
+> Test/flywayMigrate
