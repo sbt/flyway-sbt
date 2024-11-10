@@ -90,9 +90,11 @@ object FlywayPlugin extends AutoPlugin {
     val flywaySkipDefaultCallbacks =
       settingKey[Boolean]("Whether default built-in callbacks should be skipped. (default: false)")
 
-    val flywayValidateMigrationNaming = 
-      settingKey[Boolean]("Whether to ignore migration files whose names do not match the naming conventions. (default: false)")
-  
+    val flywayValidateMigrationNaming =
+      settingKey[Boolean](
+        "Whether to ignore migration files whose names do not match the naming conventions. (default: false)"
+      )
+
     // *********************
     // settings for migrate
     // *********************
