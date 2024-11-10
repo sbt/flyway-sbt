@@ -90,6 +90,9 @@ object FlywayPlugin extends AutoPlugin {
     val flywaySkipDefaultCallbacks =
       settingKey[Boolean]("Whether default built-in callbacks should be skipped. (default: false)")
 
+    val flywayValidateMigrationNaming = 
+      settingKey[Boolean]("Whether to ignore migration files whose names do not match the naming conventions. (default: false)")
+  
     // *********************
     // settings for migrate
     // *********************
@@ -172,7 +175,8 @@ object FlywayPlugin extends AutoPlugin {
       target: String,
       outOfOrder: Boolean,
       callbacks: Seq[Callback],
-      skipDefaultCallbacks: Boolean
+      skipDefaultCallbacks: Boolean,
+      validateMigrationNaming: Boolean
   )
   private case class ConfigSqlMigration(
       sqlMigrationPrefix: String,
@@ -252,6 +256,7 @@ object FlywayPlugin extends AutoPlugin {
       flywayOutOfOrder := defaults.isOutOfOrder,
       flywayCallbacks := new Array[Callback](0),
       flywaySkipDefaultCallbacks := defaults.isSkipDefaultCallbacks,
+      flywayValidateMigrationNaming := defaults.isValidateMigrationNaming,
       flywayIgnoreMissingMigrations := ValidatePatternUtils.isMissingIgnored(defaults.getIgnoreMigrationPatterns),
       flywayIgnoreFutureMigrations := ValidatePatternUtils.isFutureIgnored(defaults.getIgnoreMigrationPatterns),
       flywayIgnoreFailedFutureMigration := ValidatePatternUtils.isFutureIgnored(defaults.getIgnoreMigrationPatterns),
@@ -288,7 +293,8 @@ object FlywayPlugin extends AutoPlugin {
         flywayTarget.value,
         flywayOutOfOrder.value,
         flywayCallbacks.value,
-        flywaySkipDefaultCallbacks.value
+        flywaySkipDefaultCallbacks.value,
+        flywayValidateMigrationNaming.value
       ),
       flywayConfigSqlMigration := ConfigSqlMigration(
         flywaySqlMigrationPrefix.value,
@@ -416,6 +422,7 @@ object FlywayPlugin extends AutoPlugin {
         .resolvers(config.resolvers: _*)
         .skipDefaultResolvers(config.skipDefaultResolvers)
         .skipDefaultCallbacks(config.skipDefaultCallbacks)
+        .validateMigrationNaming(config.validateMigrationNaming)
     }
     def configure(config: ConfigSqlMigration): FluentConfiguration = {
       flyway
