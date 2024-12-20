@@ -1,7 +1,7 @@
 lazy val repoSlug = "sbt/flyway-sbt"
 lazy val flywayVersion = "11.1.0"
 lazy val scala212 = "2.12.20"
-lazy val scala3 = "3.3.4"
+lazy val scala3 = "3.6.2"
 
 ThisBuild / organization := "com.github.sbt"
 ThisBuild / version := {
@@ -26,7 +26,7 @@ lazy val root = (project in file("."))
     pluginCrossBuild / sbtVersion := {
       scalaBinaryVersion.value match {
         case "2.12" => "1.5.8"
-        case _      => "2.0.0-M2"
+        case _      => "2.0.0-M3"
       }
     },
     Compile / doc / scalacOptions ++= {
