@@ -1,6 +1,6 @@
 package flywaysbt
 
-import java.nio.file.{ Path as NioPath }
+import java.nio.file.Path as NioPath
 import sbt.*
 import xsbti.{ FileConverter, HashedVirtualFileRef, VirtualFile }
 
