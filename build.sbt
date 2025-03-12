@@ -26,7 +26,7 @@ lazy val root = (project in file("."))
     pluginCrossBuild / sbtVersion := {
       scalaBinaryVersion.value match {
         case "2.12" => "1.5.8"
-        case _      => "2.0.0-M3"
+        case _      => "2.0.0-M4"
       }
     },
     Compile / doc / scalacOptions ++= {
