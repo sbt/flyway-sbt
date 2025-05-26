@@ -69,7 +69,6 @@ ThisBuild / scmInfo := Some(
   )
 )
 ThisBuild / homepage := Some(url(s"https://github.com/$repoSlug"))
-ThisBuild / publishTo := sonatypePublishTo.value
 ThisBuild / githubWorkflowBuild := Seq(WorkflowStep.Sbt(List("+test", "+scripted")))
 ThisBuild / githubWorkflowTargetTags ++= Seq("v*")
 ThisBuild / githubWorkflowPublishTargetBranches :=
