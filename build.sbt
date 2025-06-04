@@ -1,5 +1,5 @@
 lazy val repoSlug = "sbt/flyway-sbt"
-lazy val flywayVersion = "11.8.2"
+lazy val flywayVersion = "11.9.0"
 lazy val scala212 = "2.12.20"
 lazy val scala3 = "3.6.4"
 
