@@ -11,4 +11,8 @@ private[flywaysbt] object PluginCompat {
 
   def toNioPath(a: Attributed[File])(implicit conv: FileConverter): NioPath =
     a.data.toPath()
+
+  implicit class DefOps(private val self: sbt.Def.type) extends AnyVal {
+    def uncached[A](a: A): A = a
+  }
 }
