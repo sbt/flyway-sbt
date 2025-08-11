@@ -1,6 +1,6 @@
 organization := "org.flywaydb"
 enablePlugins(FlywayPlugin)
-name := "flyway-sbt-test1"
+name := "flyway-sbt-test2"
 
 libraryDependencies ++= Seq(
   "org.hsqldb" % "hsqldb" % "2.5.0"
