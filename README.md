@@ -25,7 +25,7 @@ enablePlugins(FlywayPlugin)
 version := "0.0.1"
 name := "flyway-sbt-test1"
 
-libraryDependencies += "org.hsqldb" % "hsqldb" % "2.5.0"
+libraryDependencies += "org.hsqldb" % "hsqldb" % "2.7.4"
 
 flywayUrl := "jdbc:hsqldb:file:target/flyway_sample;shutdown=true"
 flywayUser := "SA"
