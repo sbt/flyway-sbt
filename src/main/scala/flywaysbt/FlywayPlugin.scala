@@ -485,7 +485,7 @@ object FlywayPlugin extends AutoPlugin {
   private object FlywaySbtLog extends Log {
     var streams: Option[TaskStreams] = None
 
-    def isDebugEnabled: Boolean = false
+    override def isDebugEnabled: Boolean = false
     def debug(message: String): Unit = { streams foreach (_.log.debug(message)) }
     def info(message: String): Unit = { streams foreach (_.log.info(message)) }
     def warn(message: String): Unit = { streams foreach (_.log.warn(message)) }
