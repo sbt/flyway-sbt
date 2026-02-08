@@ -4,12 +4,6 @@ lazy val scala212 = "2.12.21"
 lazy val scala3 = "3.7.4"
 
 ThisBuild / organization := "com.github.sbt"
-ThisBuild / version := {
-  val orig = (ThisBuild / version).value
-  if (orig.startsWith("9.") && orig.endsWith("-SNAPSHOT")) {
-    "9.0.0-SNAPSHOT"
-  } else orig
-}
 lazy val root = (project in file("."))
   .enablePlugins(SbtPlugin)
   .settings(
