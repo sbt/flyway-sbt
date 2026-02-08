@@ -403,13 +403,6 @@ object FlywayPlugin extends AutoPlugin {
     }
   }
 
-  private implicit class StringOps(val s: String) extends AnyVal {
-    def emptyToNull(): String = s match {
-      case ss if ss.isEmpty => null
-      case _                => s
-    }
-  }
-
   private implicit class FluentConfigurationyOps(val flyway: FluentConfiguration) extends AnyVal {
     def configure(config: Config): Flyway = {
       val flywayInstance = flyway
