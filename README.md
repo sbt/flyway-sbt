@@ -2,8 +2,7 @@
 
 ## sbt plugin for [Flyway](https://flywaydb.org)
 
-Welcome to the home for the sbt plugin for flyway. The [user manual](https://davidmweber.github.io/flyway-sbt-docs/)
-will tell you how to get started. This project is based on the original 
+Welcome to the home for the sbt plugin for flyway. This project is based on the original 
 [flyway-sbt](https://github.com/flyway/flyway/tree/flyway-4.2.0/flyway-sbt) that was in the flyway repository through 
 version 4.2.1.
 
