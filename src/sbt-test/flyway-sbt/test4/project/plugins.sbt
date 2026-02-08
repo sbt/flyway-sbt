@@ -4,4 +4,4 @@ sys.props.get("plugin.version") match {
                          |Specify this property using the scriptedLaunchOpts -D.""".stripMargin)
 }
 
-libraryDependencies += "org.flywaydb" % "flyway-database-hsqldb" % "11.11.1"
+libraryDependencies += "org.flywaydb" % "flyway-database-hsqldb" % "12.0.0"
