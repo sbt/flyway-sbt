@@ -345,7 +345,7 @@ object FlywayPlugin extends AutoPlugin {
       ),
       flywayClasspath := Def.uncached((Def.taskDyn {
         // fullClasspath triggers the compile task, so use a dynamic task to only run it if we need to.
-        // https://github.com/flyway/flyway-sbt/issues/10
+        // https://github.com/sbt/flyway-sbt/issues/10
         if (flywayLocations.value.forall(_.startsWith("filesystem:"))) {
           conf / externalDependencyClasspath
         } else {
