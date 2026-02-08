@@ -1,4 +1,4 @@
-![CI](https://github.com/sbt/flyway-sbt/workflows/CI/badge.svg)
+[![CI](https://github.com/sbt/flyway-sbt/actions/workflows/ci.yml/badge.svg?event=push)](https://github.com/sbt/flyway-sbt/actions/workflows/ci.yml)
 
 ## sbt plugin for [Flyway](https://flywaydb.org)
 
