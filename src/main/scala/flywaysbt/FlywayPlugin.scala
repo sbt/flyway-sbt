@@ -272,7 +272,7 @@ object FlywayPlugin extends AutoPlugin {
       flywayMixed := defaults.isMixed,
       flywayGroup := defaults.isGroup,
       flywayInstalledBy := "",
-      flywayCleanOnValidationError := defaults.isCleanOnValidationError,
+      flywayCleanOnValidationError := false,
       flywayCleanDisabled := defaults.isCleanDisabled,
       flywayConfigDataSource := Def.uncached(
         ConfigDataSource(
@@ -436,7 +436,6 @@ object FlywayPlugin extends AutoPlugin {
       flyway
         .locations(config.locations*)
         .encoding(config.encoding)
-        .cleanOnValidationError(config.cleanOnValidationError)
         .cleanDisabled(config.cleanDisabled)
         // .target(config.target) Setting this as-is will make the default be "current", which we don't want
         .outOfOrder(config.outOfOrder)
