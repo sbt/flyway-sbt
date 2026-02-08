@@ -8,7 +8,7 @@ version 4.2.1.
 
 ### Getting started
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.github.sbt/flyway-sbt_2.12_1.0)](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.github.sbt%22%20AND%20a%3A%22flyway-sbt_2.12_1.0%22)
+[![Maven Central](https://img.shields.io/maven-central/v/com.github.sbt/flyway-sbt_2.12_1.0)](https://central.sonatype.com/artifact/com.github.sbt/flyway-sbt_2.12_1.0)
 
 Adding Flyway to your build is very easy. First, update to your `project/plugin.sbt` file to include:
 
