@@ -15,8 +15,17 @@ lazy val root = (project in file("."))
     scalacOptions ++= Seq(
       "-deprecation",
       "-unchecked",
-      "-Xfuture"
     ),
+    scalacOptions ++= {
+      scalaBinaryVersion.value match {
+        case "2.12" =>
+          Seq(
+            "-Xfuture"
+          )
+        case _ =>
+          Nil
+      }
+    },
     pluginCrossBuild / sbtVersion := {
       scalaBinaryVersion.value match {
         case "2.12" => "1.9.9"
