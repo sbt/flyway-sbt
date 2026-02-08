@@ -24,7 +24,7 @@ import org.flywaydb.core.internal.info.MigrationInfoDumper
 import org.flywaydb.core.internal.util.ValidatePatternUtils
 import sbt.{ given, * }
 import sbt.Keys.*
-import scala.collection.JavaConverters.*
+import scala.jdk.CollectionConverters.*
 import xsbti.FileConverter
 
 object FlywayPlugin extends AutoPlugin {
@@ -254,7 +254,7 @@ object FlywayPlugin extends AutoPlugin {
       flywaySqlMigrationPrefix := defaults.getSqlMigrationPrefix,
       flywayRepeatableSqlMigrationPrefix := defaults.getRepeatableSqlMigrationPrefix,
       flywaySqlMigrationSeparator := defaults.getSqlMigrationSeparator,
-      flywaySqlMigrationSuffixes := defaults.getSqlMigrationSuffixes,
+      flywaySqlMigrationSuffixes := defaults.getSqlMigrationSuffixes.toSeq,
       flywayTarget := "current",
       flywayOutOfOrder := defaults.isOutOfOrder,
       flywayCallbacks := Seq.empty[Callback],
