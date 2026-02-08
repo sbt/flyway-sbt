@@ -4,7 +4,11 @@ permissions: {}
 
 on:
   pull_request:
-    branches: ['**']
+    branches:
+      - main
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -12,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout current branch (full)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -20,7 +24,7 @@ jobs:
       - uses: actions/setup-java@v5
         with:
           distribution: temurin
-          java-version: 8
+          java-version: 17
 
       - uses: sbt/setup-sbt@v1
 
