@@ -29,7 +29,7 @@ lazy val root = (project in file("."))
     pluginCrossBuild / sbtVersion := {
       scalaBinaryVersion.value match {
         case "2.12" => "1.9.9"
-        case _      => "2.0.0"
+        case _      => "2.0.2"
       }
     },
     Compile / doc / scalacOptions ++= {
@@ -41,7 +41,7 @@ lazy val root = (project in file("."))
             "-doc-source-url",
             s"""https://github.com/sbt/flyway-sbt/tree/${sys.process
                 .Process("git rev-parse HEAD")
-                .lineStream_!
+                .lazyLines_!
                 .head}€{FILE_PATH}.scala"""
           )
         case _ => Nil
@@ -61,17 +61,17 @@ ThisBuild / developers := List(
     id = "davidmweber",
     name = "David Weber",
     email = "dave@veryflatcat.com",
-    url = url("https://davidmweber.github.io/flyway-sbt-docs/")
+    url = uri("https://davidmweber.github.io/flyway-sbt-docs/")
   )
 )
-ThisBuild / licenses := Seq("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
+ThisBuild / licenses := Seq("Apache-2.0" -> uri("http://www.apache.org/licenses/LICENSE-2.0.txt"))
 ThisBuild / scmInfo := Some(
   ScmInfo(
-    url(s"https://github.com/$repoSlug"),
+    uri(s"https://github.com/$repoSlug"),
     s"scm:git@github.com:$repoSlug.git"
   )
 )
-ThisBuild / homepage := Some(url(s"https://github.com/$repoSlug"))
+ThisBuild / homepage := Some(uri(s"https://github.com/$repoSlug"))
 ThisBuild / githubWorkflowBuild := Seq(WorkflowStep.Sbt(List("+test", "+scripted")))
 ThisBuild / githubWorkflowTargetTags ++= Seq("v*")
 ThisBuild / githubWorkflowPublishTargetBranches :=
