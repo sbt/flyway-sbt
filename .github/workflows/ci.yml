@@ -49,7 +49,7 @@ jobs:
       - run: sbt '++ ${{ matrix.scala }}; +test; +scripted'
 
       - name: Compress target directories
-        run: tar cf targets.tar target/out/jvm/scala-3.8.4/flyway-sbt project/target
+        run: tar cf targets.tar target/out/jvm project/target
 
       - name: Upload target directories
         uses: actions/upload-artifact@v7
