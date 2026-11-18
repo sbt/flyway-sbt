@@ -1,7 +1,9 @@
 lazy val repoSlug = "sbt/flyway-sbt"
 lazy val flywayVersion = "13.12.2"
 lazy val scala212 = "2.12.21"
-lazy val scala3 = "3.8.4"
+lazy val scala3 = "3.9.0"
+
+ThisBuild / scalaVersion := scala212
 
 ThisBuild / organization := "com.github.sbt"
 lazy val root = (project in file("."))
@@ -20,7 +22,9 @@ lazy val root = (project in file("."))
       scalaBinaryVersion.value match {
         case "2.12" =>
           Seq(
-            "-Xfuture"
+            "-Xfuture",
+            "-Xsource:3",
+            "-release:17"
           )
         case _ =>
           Nil
@@ -29,7 +33,7 @@ lazy val root = (project in file("."))
     pluginCrossBuild / sbtVersion := {
       scalaBinaryVersion.value match {
         case "2.12" => "1.9.9"
-        case _      => "2.0.9"
+        case _      => "2.1.0"
       }
     },
     Compile / doc / scalacOptions ++= {
@@ -47,6 +51,7 @@ lazy val root = (project in file("."))
         case _ => Nil
       }
     },
+    scriptedSbt := (if (scalaBinaryVersion.value == "2.12") "1.13.1" else "2.1.0"),
     scriptedLaunchOpts := {
       scriptedLaunchOpts.value ++
         Seq("-Xmx1024M", "-Dplugin.version=" + version.value)
@@ -93,5 +98,9 @@ ThisBuild / githubWorkflowPublish := Seq(
 )
 ThisBuild / githubWorkflowOSes := Seq("ubuntu-latest", "macos-latest")
 ThisBuild / githubWorkflowJavaVersions := Seq(
-  JavaSpec.temurin("17")
+  JavaSpec.temurin("17"),
+  JavaSpec.temurin("21"),
+  JavaSpec.temurin("25")
 )
+
+ThisBuild / githubWorkflowPublishJavaVersion := JavaSpec.temurin("17")
